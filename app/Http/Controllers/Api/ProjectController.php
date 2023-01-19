@@ -14,7 +14,5 @@ class ProjectController extends Controller
             'success' => true,
             'results' => Project::with(['type', 'technologies'])->orderByDesc('id')->paginate(5)
         ]);
-
-        //return Project::orderByDesc('id')->paginate(5);
     }
 }
