@@ -20,3 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/projects', [ProjectController::class, 'index']);
+
+//Add route to handle API calls for the single post
+
+Route::get('/projects/{project:slug}', [ProjectController::class, 'show']);
