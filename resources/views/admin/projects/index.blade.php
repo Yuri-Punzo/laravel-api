@@ -2,7 +2,6 @@
 
 @section('content')
 <main class="">
-
     <section class="comics py-5">
         <div class="container">
             <div class="heading d-flex justify-content-between">
@@ -11,9 +10,7 @@
                     <a href="{{route('admin.projects.create')}}" class="btn btn-primary">Add Project</a>
                 </div>
             </div>
-
             @include('partials.message')
-
             <div class="table-responsive-md">
                 <table class="table table-striped
             table-hover
@@ -64,16 +61,13 @@
                             <td scope="row">Sorry no records to show</td>
                         </tr>
                         @endforelse
-
                     </tbody>
                     <tfoot>
-
                     </tfoot>
                 </table>
+                {{$projects->links('vendor.pagination.bootstrap-5')}}
             </div>
-
         </div>
-
     </section>
 </main>
 @endsection
