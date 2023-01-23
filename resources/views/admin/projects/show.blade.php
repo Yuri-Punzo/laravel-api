@@ -4,12 +4,16 @@
 
 <div class="container py-5">
     <div class="d-flex gap-4">
-        <img style="height: 300px;" src="#" alt="#">
         <div class="details">
             <h1>{{$project->title}}</h1>
+            @if($project->cover_image)
+            <img class="img-fluid" style="width:150px" src="{{asset('storage/' . $project->cover_image)}}" alt="">
+            @else
+            <div class="placeholder p-5 bg-secondary" style="width:100px">Placeholder</div>
+
+            @endif
             <p>{{$project->description}}</p>
             <span>{{$project->type ? $project->type->name : 'Null'}}</span>
-
             <div class="tecnologie">
                 @if (count($project->technologies) > 0)
                 <span>Tecnologie: </span>

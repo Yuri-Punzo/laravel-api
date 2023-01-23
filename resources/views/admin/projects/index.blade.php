@@ -22,6 +22,7 @@
                             <th>Id</th>
                             <th>Title</th>
                             <th>Slug</th>
+                            <th>Cover Image</th>
                             <th>Description</th>
                             <th>Type</th>
                             <th>Actions</th>
@@ -33,6 +34,15 @@
                             <td scope="row ">{{$project->id}}</td>
                             <td>{{$project->title}}</td>
                             <td>{{$project->slug}}</td>
+                            <td>
+                                @if($project->cover_image)
+                                <img width="100" class="img-fluid" src="{{asset('storage/' . $project->cover_image)}}" alt="">
+                                @else
+                                <div class="placeholder p-5 bg-secondary d-flex align-items-center justify-content-center" style="width:100px">
+                                    Placeholder
+                                </div>
+                                @endif
+                            </td>
                             <td>{{$project->description}}</td>
                             <td>{{$project->type ? $project->type->name : 'Null'}}</td>
                             <td class="my_column">

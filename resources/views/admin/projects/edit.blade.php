@@ -5,13 +5,21 @@
 <div class="container mb-5">
     <h1 class="py-5">Edit Project</h1>
     @include('partials.errors')
-    <form action="{{route('admin.projects.update', $project->slug)}}" method="post" class="card p-3">
+    <form action="{{route('admin.projects.update', $project->slug)}}" method="post" class="card p-3" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="" aria-describedby="titleHlper" value="{{old('title', $project->title)}}">
             <small id="titleHlper" class="text-muted">Add the product title here</small>
+        </div>
+        <div class="mb-3 d-flex gap-4">
+            <img width="100" class="bg-dark" src="{{ asset('storage/' . $project->cover_image)}}" alt="">
+            <div>
+                <label for="cover_image" class="form-label">Replace Cover Image</label>
+                <input type="file" name="cover_image" id="cover_image" class="form-control  @error('cover_image') is-invalid @enderror" placeholder="" aria-describedby="coverImageHelper">
+                <small id="coverImageHelper" class="text-muted">Replace the project cover image</small>
+            </div>
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>

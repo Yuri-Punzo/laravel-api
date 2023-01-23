@@ -34,7 +34,8 @@ class UpdateProjectRequest extends FormRequest
             'slug' => 'max:255',
             'description' => 'nullable',
             'type_id' => ['nullable', 'exists:types,id'],
-            'technologies' => 'exists:technologies,id'
+            'technologies' => 'exists:technologies,id',
+            'cover_image' => 'nullable|image|max:300'
         ];
     }
 
