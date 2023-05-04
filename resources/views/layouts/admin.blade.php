@@ -22,8 +22,9 @@
 <body>
     <div id="app">
         @include("partials.header")
-
-        <a class="ps-5" href="{{route('admin.projects.index')}}">Projects</a>
+        <div class="container pt-5">
+            <a class="" href="{{route('admin.projects.index')}}">Projects</a>
+        </div>
 
         @yield('content')
 
